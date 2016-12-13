@@ -430,8 +430,6 @@ func spawn(val int, parentchan chan cmd) chan cmd {
 			case ctNewChild:
 				c := cm.(newChildCmd)
 
-				println(c.left, c.childchan)
-
 				if c.left {
 					left = c.childchan
 					continue

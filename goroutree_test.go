@@ -16,6 +16,7 @@ package goroutree_test
 
 import (
 	"bytes"
+	"strconv"
 	"testing"
 
 	"github.com/ScottMansfield/goroutree"
@@ -1072,5 +1073,53 @@ func TestDelete(t *testing.T) {
 				t.Fatalf("Expected printed tree to be \"%s\" but got %s", gold, buf.String())
 			}
 		})
+	})
+}
+
+// for 3, this should generate the tree
+//
+//    0
+//     \
+//      1
+//       \
+//        2
+//
+func genTreeLevels(levels int) *goroutree.Goroutree {
+	g := goroutree.New()
+	boolreschan := make(chan bool)
+
+	for i := 0; i < levels; i++ {
+		g.Insert(boolreschan, i)
+		<-boolreschan
+	}
+
+	return g
+}
+
+func benchInsert(b *testing.B, levels int) {
+	boolreschan := make(chan bool)
+	g := genTreeLevels(levels)
+
+	for i := 0; i < b.N; i++ {
+		g.Insert(boolreschan, levels)
+		<-boolreschan
+	}
+}
+
+func BenchmarkInsert(b *testing.B) {
+	b.Run("Levels", func(b *testing.B) {
+		// 0 to 9 levels deep
+		for i := 0; i < 10; i++ {
+			b.Run(strconv.Itoa(i)+"Deep", func(b *testing.B) {
+				benchInsert(b, i)
+			})
+		}
+
+		// 10 to 100 levels deep, by 10
+		for i := 10; i <= 100; i += 10 {
+			b.Run(strconv.Itoa(i)+"Deep", func(b *testing.B) {
+				benchInsert(b, i)
+			})
+		}
 	})
 }
