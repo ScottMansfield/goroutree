@@ -28,7 +28,7 @@ func TestInsert(t *testing.T) {
 
 		boolreschan := make(chan bool)
 
-		g.Insert(boolreschan, 5)
+		g.Insert(boolreschan, goroutree.Int(5))
 
 		b := <-boolreschan
 		if b != true {
@@ -54,14 +54,14 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -86,14 +86,14 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
@@ -118,14 +118,14 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != false {
@@ -152,21 +152,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
@@ -191,21 +191,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -230,21 +230,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
@@ -269,21 +269,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
@@ -308,21 +308,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
@@ -347,21 +347,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != false {
@@ -386,21 +386,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != false {
@@ -425,21 +425,21 @@ func TestInsert(t *testing.T) {
 
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != false {
@@ -475,21 +475,21 @@ func TestInsert(t *testing.T) {
 		boolreschan := make(chan bool, 15)
 
 		// create a balanced tree of 15 items
-		g.Insert(boolreschan, 7)
-		g.Insert(boolreschan, 3)
-		g.Insert(boolreschan, 1)
-		g.Insert(boolreschan, 0)
-		g.Insert(boolreschan, 2)
-		g.Insert(boolreschan, 5)
-		g.Insert(boolreschan, 4)
-		g.Insert(boolreschan, 6)
-		g.Insert(boolreschan, 11)
-		g.Insert(boolreschan, 9)
-		g.Insert(boolreschan, 8)
-		g.Insert(boolreschan, 10)
-		g.Insert(boolreschan, 13)
-		g.Insert(boolreschan, 12)
-		g.Insert(boolreschan, 14)
+		g.Insert(boolreschan, goroutree.Int(7))
+		g.Insert(boolreschan, goroutree.Int(3))
+		g.Insert(boolreschan, goroutree.Int(1))
+		g.Insert(boolreschan, goroutree.Int(0))
+		g.Insert(boolreschan, goroutree.Int(2))
+		g.Insert(boolreschan, goroutree.Int(5))
+		g.Insert(boolreschan, goroutree.Int(4))
+		g.Insert(boolreschan, goroutree.Int(6))
+		g.Insert(boolreschan, goroutree.Int(11))
+		g.Insert(boolreschan, goroutree.Int(9))
+		g.Insert(boolreschan, goroutree.Int(8))
+		g.Insert(boolreschan, goroutree.Int(10))
+		g.Insert(boolreschan, goroutree.Int(13))
+		g.Insert(boolreschan, goroutree.Int(12))
+		g.Insert(boolreschan, goroutree.Int(14))
 
 		for i := 0; i < 15; i++ {
 			b := <-boolreschan
@@ -517,7 +517,7 @@ func TestContains(t *testing.T) {
 	t.Run("Empty", func(t *testing.T) {
 		g := goroutree.New()
 		boolreschan := make(chan bool)
-		g.Contains(boolreschan, 4)
+		g.Contains(boolreschan, goroutree.Int(4))
 
 		b := <-boolreschan
 		if b != false {
@@ -529,14 +529,14 @@ func TestContains(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Contains(boolreschan, 4)
+			g.Contains(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -547,14 +547,14 @@ func TestContains(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Contains(boolreschan, 5)
+			g.Contains(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != false {
@@ -568,21 +568,21 @@ func TestContains(t *testing.T) {
 				g := goroutree.New()
 				boolreschan := make(chan bool)
 
-				g.Insert(boolreschan, 4)
+				g.Insert(boolreschan, goroutree.Int(4))
 
 				b := <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Insert(boolreschan, 6)
+				g.Insert(boolreschan, goroutree.Int(6))
 
 				b = <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Contains(boolreschan, 4)
+				g.Contains(boolreschan, goroutree.Int(4))
 
 				b = <-boolreschan
 				if b != true {
@@ -594,21 +594,21 @@ func TestContains(t *testing.T) {
 					g := goroutree.New()
 					boolreschan := make(chan bool)
 
-					g.Insert(boolreschan, 4)
+					g.Insert(boolreschan, goroutree.Int(4))
 
 					b := <-boolreschan
 					if b != true {
 						t.Fatalf("Expected a true result from inserting")
 					}
 
-					g.Insert(boolreschan, 2)
+					g.Insert(boolreschan, goroutree.Int(2))
 
 					b = <-boolreschan
 					if b != true {
 						t.Fatalf("Expected a true result from inserting")
 					}
 
-					g.Contains(boolreschan, 2)
+					g.Contains(boolreschan, goroutree.Int(2))
 
 					b = <-boolreschan
 					if b != true {
@@ -619,21 +619,21 @@ func TestContains(t *testing.T) {
 					g := goroutree.New()
 					boolreschan := make(chan bool)
 
-					g.Insert(boolreschan, 4)
+					g.Insert(boolreschan, goroutree.Int(4))
 
 					b := <-boolreschan
 					if b != true {
 						t.Fatalf("Expected a true result from inserting")
 					}
 
-					g.Insert(boolreschan, 6)
+					g.Insert(boolreschan, goroutree.Int(6))
 
 					b = <-boolreschan
 					if b != true {
 						t.Fatalf("Expected a true result from inserting")
 					}
 
-					g.Contains(boolreschan, 6)
+					g.Contains(boolreschan, goroutree.Int(6))
 
 					b = <-boolreschan
 					if b != true {
@@ -647,14 +647,14 @@ func TestContains(t *testing.T) {
 				g := goroutree.New()
 				boolreschan := make(chan bool)
 
-				g.Insert(boolreschan, 4)
+				g.Insert(boolreschan, goroutree.Int(4))
 
 				b := <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Contains(boolreschan, 3)
+				g.Contains(boolreschan, goroutree.Int(3))
 
 				b = <-boolreschan
 				if b != false {
@@ -665,14 +665,14 @@ func TestContains(t *testing.T) {
 				g := goroutree.New()
 				boolreschan := make(chan bool)
 
-				g.Insert(boolreschan, 4)
+				g.Insert(boolreschan, goroutree.Int(4))
 
 				b := <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Contains(boolreschan, 5)
+				g.Contains(boolreschan, goroutree.Int(5))
 
 				b = <-boolreschan
 				if b != false {
@@ -687,7 +687,7 @@ func TestDelete(t *testing.T) {
 	t.Run("Empty", func(t *testing.T) {
 		g := goroutree.New()
 		boolreschan := make(chan bool)
-		g.Delete(boolreschan, 4)
+		g.Delete(boolreschan, goroutree.Int(4))
 
 		b := <-boolreschan
 		if b != false {
@@ -699,14 +699,14 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 4)
+			g.Delete(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -730,14 +730,14 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 5)
+			g.Delete(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != false {
@@ -763,21 +763,21 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 3)
+			g.Insert(boolreschan, goroutree.Int(3))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 3)
+			g.Delete(boolreschan, goroutree.Int(3))
 
 			b = <-boolreschan
 			if b != true {
@@ -801,21 +801,21 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 5)
+			g.Delete(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
@@ -841,21 +841,21 @@ func TestDelete(t *testing.T) {
 				g := goroutree.New()
 				boolreschan := make(chan bool)
 
-				g.Insert(boolreschan, 4)
+				g.Insert(boolreschan, goroutree.Int(4))
 
 				b := <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Insert(boolreschan, 3)
+				g.Insert(boolreschan, goroutree.Int(3))
 
 				b = <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Delete(boolreschan, 4)
+				g.Delete(boolreschan, goroutree.Int(4))
 
 				b = <-boolreschan
 				if b != true {
@@ -880,21 +880,21 @@ func TestDelete(t *testing.T) {
 				g := goroutree.New()
 				boolreschan := make(chan bool)
 
-				g.Insert(boolreschan, 4)
+				g.Insert(boolreschan, goroutree.Int(4))
 
 				b := <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Insert(boolreschan, 5)
+				g.Insert(boolreschan, goroutree.Int(5))
 
 				b = <-boolreschan
 				if b != true {
 					t.Fatalf("Expected a true result from inserting")
 				}
 
-				g.Delete(boolreschan, 4)
+				g.Delete(boolreschan, goroutree.Int(4))
 
 				b = <-boolreschan
 				if b != true {
@@ -921,28 +921,28 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 3)
+			g.Insert(boolreschan, goroutree.Int(3))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 4)
+			g.Delete(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -966,35 +966,35 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 3)
+			g.Insert(boolreschan, goroutree.Int(3))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 4)
+			g.Delete(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -1018,42 +1018,42 @@ func TestDelete(t *testing.T) {
 			g := goroutree.New()
 			boolreschan := make(chan bool)
 
-			g.Insert(boolreschan, 4)
+			g.Insert(boolreschan, goroutree.Int(4))
 
 			b := <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 3)
+			g.Insert(boolreschan, goroutree.Int(3))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 7)
+			g.Insert(boolreschan, goroutree.Int(7))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 5)
+			g.Insert(boolreschan, goroutree.Int(5))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Insert(boolreschan, 6)
+			g.Insert(boolreschan, goroutree.Int(6))
 
 			b = <-boolreschan
 			if b != true {
 				t.Fatalf("Expected a true result from inserting")
 			}
 
-			g.Delete(boolreschan, 4)
+			g.Delete(boolreschan, goroutree.Int(4))
 
 			b = <-boolreschan
 			if b != true {
@@ -1089,7 +1089,7 @@ func genTreeLevels(levels int) *goroutree.Goroutree {
 	boolreschan := make(chan bool)
 
 	for i := 0; i < levels; i++ {
-		g.Insert(boolreschan, i)
+		g.Insert(boolreschan, goroutree.Int(i))
 		<-boolreschan
 	}
 
@@ -1101,7 +1101,8 @@ func benchInsert(b *testing.B, levels int) {
 	g := genTreeLevels(levels)
 
 	for i := 0; i < b.N; i++ {
-		g.Insert(boolreschan, levels)
+		g.Insert(boolreschan, goroutree.Int(levels))
+
 		<-boolreschan
 	}
 }

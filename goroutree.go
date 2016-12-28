@@ -63,7 +63,7 @@ type cmd interface {
 
 type insertCmd struct {
 	reschan chan bool
-	val     int
+	val     Comparer
 }
 
 func (c insertCmd) typ() cmdType {
@@ -72,7 +72,7 @@ func (c insertCmd) typ() cmdType {
 
 type containsCmd struct {
 	reschan chan bool
-	val     int
+	val     Comparer
 }
 
 func (c containsCmd) typ() cmdType {
@@ -81,7 +81,7 @@ func (c containsCmd) typ() cmdType {
 
 type deleteCmd struct {
 	reschan chan bool
-	val     int
+	val     Comparer
 	left    bool
 }
 
@@ -118,7 +118,7 @@ func (c extractMinCmd) typ() cmdType {
 }
 
 type subtreeMinResponse struct {
-	val       int
+	val       Comparer
 	newchild  bool
 	childchan chan cmd
 }
@@ -200,7 +200,7 @@ func manager(main chan cmd) {
 // Insert adds a new value into the set if it does not already exist. The channel
 // passed will receive a true if the value was successfully inserted and a false
 // if the value already existed.
-func (g *Goroutree) Insert(reschan chan bool, val int) {
+func (g *Goroutree) Insert(reschan chan bool, val Comparer) {
 	g.cmdchan <- insertCmd{
 		reschan: reschan,
 		val:     val,
@@ -209,7 +209,7 @@ func (g *Goroutree) Insert(reschan chan bool, val int) {
 
 // Contains will tell if the set contains the given value. The channel passed will
 // receive a true if the value does exist in the set and a false if not.
-func (g *Goroutree) Contains(reschan chan bool, val int) {
+func (g *Goroutree) Contains(reschan chan bool, val Comparer) {
 	g.cmdchan <- containsCmd{
 		reschan: reschan,
 		val:     val,
@@ -218,7 +218,7 @@ func (g *Goroutree) Contains(reschan chan bool, val int) {
 
 // Delete removes a value from the tree set if it exists. The channel passed will
 // receive a true if the value did exist in the set and a false if not.
-func (g *Goroutree) Delete(reschan chan bool, val int) {
+func (g *Goroutree) Delete(reschan chan bool, val Comparer) {
 	g.cmdchan <- deleteCmd{
 		reschan: reschan,
 		val:     val,
@@ -238,13 +238,13 @@ func (g *Goroutree) Print(reschan chan struct{}, w io.Writer) {
 // within this function is the logic that each node runs. Essentially it is an
 // infinite loop that responds to messages sent on its command channel. It then
 // decides to either act on that message or pass it on down the tree.
-func spawn(val int, parentchan chan cmd) chan cmd {
+func spawn(val Comparer, parentchan chan cmd) chan cmd {
 
 	cmdchan := make(chan cmd)
 
 	// cmdchan will be a stream of commands to be done in this node
 	// val is a constant value that this node holds
-	go func(cmdchan, parentchan chan cmd, val int) {
+	go func(cmdchan, parentchan chan cmd, val Comparer) {
 		var left, right chan cmd
 
 		for cm := range cmdchan {
@@ -252,13 +252,15 @@ func spawn(val int, parentchan chan cmd) chan cmd {
 			case ctInsert:
 				c := cm.(insertCmd)
 
-				if c.val == val {
+				comparison, _ := c.val.Compare(val)
+
+				if comparison == 0 {
 					c.reschan <- false
 					continue
 				}
 
 				// left branch
-				if c.val < val {
+				if comparison == -1 {
 					// if the left node exists, send it down.
 					if left != nil {
 						left <- c
@@ -281,6 +283,7 @@ func spawn(val int, parentchan chan cmd) chan cmd {
 
 			case ctContains:
 				c := cm.(containsCmd)
+				comparison, _ := c.val.Compare(val)
 
 				if c.val == val {
 					c.reschan <- true
@@ -289,7 +292,7 @@ func spawn(val int, parentchan chan cmd) chan cmd {
 
 				// Go right if the value is bigger,
 				// left if smaller
-				if c.val > val && right != nil {
+				if comparison == 1 && right != nil {
 					right <- c
 					continue
 				}
@@ -372,7 +375,9 @@ func spawn(val int, parentchan chan cmd) chan cmd {
 					continue
 				}
 
-				if c.val > val && right != nil {
+				comparison, _ := c.val.Compare(val)
+
+				if comparison == 1 && right != nil {
 					c.left = false
 					right <- c
 					continue
